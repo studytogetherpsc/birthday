@@ -3,383 +3,308 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090909">
-<meta name="description" content="A special birthday surprise">
-<title>Happy Birthday ✨</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>A Little Surprise ✨</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
 
-:root {
-  --gold: #e6c56b;
-  --light-gold: #ffe9a3;
-  --bg: #090909;
-  --muted: #b9b4a5;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#080808;
+  color:#fff;
+  font-family:Poppins,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
 }
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  color: #fff;
+:root{--gold:#e8c76a;--pale:#ffedb1}
+.screen{
+  display:none;
+  min-height:100svh;
+  padding:35px 20px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
   background:
-    radial-gradient(ellipse at 50% 15%, #292011 0%, transparent 55%),
-    var(--bg);
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  overflow-x: hidden;
+    radial-gradient(ellipse at 50% 40%,#382c154c,transparent 65%),
+    #080808;
+  animation:appear .8s ease;
 }
-
-.gold { color: var(--gold); }
-
-.hero {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 40px 20px;
-  position: relative;
-  overflow: hidden;
+.screen.active{display:flex}
+@keyframes appear{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
 }
-
-.eyebrow {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  animation: fadeUp 1s both;
+h1,h2{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--pale);
+  font-weight:500;
 }
-
-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(54px, 12vw, 105px);
-  font-weight: 500;
-  line-height: .95;
-  margin: 22px 0;
-  color: var(--light-gold);
-  text-shadow: 0 0 40px #d7ae4833;
-  animation: fadeUp 1.2s both;
+h1{font-size:clamp(48px,11vw,82px);line-height:1.05;margin:20px 0}
+h2{font-size:clamp(38px,9vw,65px);margin:16px 0}
+p{color:#c7c0b0;line-height:1.9;font-size:14px;max-width:480px}
+.eyebrow{
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font-size:10px;
+  color:var(--gold);
 }
-
-.name {
-  display: block;
-  font-size: clamp(40px, 10vw, 85px);
-  font-weight: 700;
-  overflow-wrap: anywhere;
+.icon{
+  font-size:65px;
+  filter:drop-shadow(0 0 18px #d5ad4d77);
+  margin:12px;
 }
-
-.subtitle {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 420px;
-  margin: 0 auto 30px;
-  animation: fadeUp 1.5s both;
+.buttons{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+button{
+  font:500 13px Poppins,sans-serif;
+  border:1px solid var(--gold);
+  border-radius:50px;
+  padding:13px 30px;
+  cursor:pointer;
+  transition:.25s;
 }
-
-.btn {
-  border: 1px solid var(--gold);
-  color: #17120a;
-  background: linear-gradient(135deg, #ffe9a3, #c79b3b);
-  padding: 13px 28px;
-  border-radius: 50px;
-  cursor: pointer;
-  font: 500 13px 'Poppins', sans-serif;
-  transition: transform .25s, box-shadow .25s;
+.yes{
+  color:#171108;
+  background:linear-gradient(130deg,#ffecad,#c49a3f);
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px #d8ad4d55;
+.no,.secondary{
+  color:var(--gold);
+  background:transparent;
 }
-
-.outline {
-  background: transparent;
-  color: var(--gold);
+button:hover{transform:translateY(-3px);box-shadow:0 0 22px #d5ad4d44}
+.message{
+  max-width:520px;
+  padding:24px;
+  border:1px solid #b9994c66;
+  border-radius:18px;
+  background:#ffffff08;
+  line-height:2;
+  font-size:14px;
+  color:#e9e0c9;
 }
-
-section {
-  padding: 70px 20px;
-  width: min(100%, 1000px);
-  margin: auto;
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  width:min(100%,600px);
+  margin:22px auto;
 }
-
-.section-title {
-  font: 500 clamp(32px, 7vw, 50px) 'Cormorant Garamond', serif;
-  color: var(--light-gold);
-  margin: 0 0 12px;
+.photo-grid img{
+  width:100%;
+  aspect-ratio:1/1.15;
+  object-fit:cover;
+  border:1px solid #c8a34f88;
+  border-radius:12px;
+  background:#17130b;
 }
-
-.section-sub {
-  color: var(--muted);
-  font-size: 12px;
-  margin-bottom: 32px;
+.music{
+  position:fixed;
+  bottom:16px;
+  right:15px;
+  z-index:20;
+  padding:10px 15px;
+  color:var(--gold);
+  background:#17130b;
 }
-
-.message {
-  max-width: 650px;
-  margin: auto;
-  padding: 30px;
-  border: 1px solid #b9994d55;
-  border-radius: 18px;
-  background: linear-gradient(145deg,#ffffff0b,#c7a34b08);
-  line-height: 2;
-  font-size: 14px;
-  color: #e2ddcf;
+.progress{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:3px;
+  background:#ffffff16;
+  z-index:20;
 }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 14px;
-  max-width: 750px;
-  margin: auto;
+.progress div{
+  width:25%;height:100%;
+  background:var(--gold);
+  transition:width .5s;
 }
-
-.photo {
-  overflow: hidden;
-  border: 1px solid #c5a34b55;
-  border-radius: 13px;
-  aspect-ratio: 1 / 1.15;
-  background: #17140e;
+#confetti{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:10;
 }
-
-.photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .5s;
-}
-
-.photo:hover img { transform: scale(1.08); }
-
-.music {
-  position: fixed;
-  right: 18px;
-  bottom: 20px;
-  z-index: 5;
-  border: 1px solid var(--gold);
-  background: #17130b;
-  color: var(--gold);
-  border-radius: 50px;
-  padding: 12px 17px;
-  font: 12px 'Poppins', sans-serif;
-  cursor: pointer;
-}
-
-footer {
-  padding: 30px 15px 45px;
-  color: #a69c83;
-  font-size: 11px;
-  letter-spacing: 1px;
-}
-
-.sparkle {
-  position: absolute;
-  color: var(--gold);
-  pointer-events: none;
-  animation: twinkle 2.5s infinite alternate;
-}
-
-@keyframes twinkle {
-  from { opacity: .2; transform: scale(.7); }
-  to { opacity: .95; transform: scale(1.3); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media(max-width: 550px) {
-  .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  section { padding: 55px 18px; }
-  .message { padding: 23px 17px; }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
+@media(max-width:480px){
+  .photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .message{padding:18px}
 }
 </style>
 </head>
-
 <body>
 
-<header class="hero" id="home">
-  <span class="sparkle" style="top:15%;left:13%">✦</span>
-  <span class="sparkle" style="top:28%;right:12%;animation-delay:1s">✧</span>
-  <span class="sparkle" style="bottom:20%;left:20%;animation-delay:.5s">✦</span>
+<div class="progress"><div id="bar"></div></div>
+<canvas id="confetti"></canvas>
 
-  <p class="eyebrow">A special day • A special person</p>
-  <h1>Happy Birthday<span class="name" id="heroName">Dear Friend</span></h1>
-  <p class="subtitle">
-    Today is all about you. May your life be filled
-    with happiness, love and beautiful memories.
-  </p>
-  <button class="btn" onclick="celebrate()">✦ Celebrate ✦</button>
-</header>
+<!-- PAGE 1 -->
+<section class="screen active" id="page1">
+  <div class="eyebrow">A little surprise for you</div>
+  <div class="icon">🎁</div>
+  <h1>Hey, You!</h1>
+  <p>Someone has prepared something special for you.<br>
+  Are you ready to discover it?</p>
+  <div class="buttons">
+    <button class="yes" onclick="nextPage(2)">YES, I'M READY ✨</button>
+    <button class="no" onclick="sayNo()">NO</button>
+  </div>
+  <p id="noText" aria-live="polite"></p>
+</section>
 
-<section id="wish">
-  <h2 class="section-title">A Little Wish <span class="gold">♡</span></h2>
-  <p class="section-sub">A few words from the heart</p>
-  <div class="message" id="wishMessage">
-    Wishing you a birthday as wonderful as you are.
-    May every dream you chase bring you closer to
-    happiness. May your days be filled with laughter,
-    your heart with peace, and your life with countless
-    beautiful moments. Keep shining always!
+<!-- PAGE 2 -->
+<section class="screen" id="page2">
+  <div class="eyebrow">Step 01 • A little secret</div>
+  <div class="icon">💌</div>
+  <h2>A Secret Message</h2>
+  <p>There's something I've been wanting to tell you.
+  But first, open this little surprise.</p>
+  <div class="message" id="letter" hidden>
+    Every person brings something special into the lives
+    of others. Your friendship is one of those beautiful
+    little gifts. Here's a little something just for you.
+  </div>
+  <div class="buttons">
+    <button class="yes" id="openLetter" onclick="openLetter()">OPEN THE LETTER 💌</button>
+    <button class="secondary" onclick="nextPage(3)">CONTINUE →</button>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="screen" id="page3">
+  <div class="eyebrow">Step 02 • The big reveal</div>
+  <div class="icon">🎂</div>
+  <h1>Happy Birthday!</h1>
+  <h2 id="birthdayName">Dear Friend</h2>
+  <p>May your days be filled with laughter,
+  your heart with happiness, and your life
+  with beautiful memories.</p>
+  <div class="buttons">
+    <button class="yes" onclick="celebrate()">LET'S CELEBRATE ✨</button>
+    <button class="secondary" onclick="nextPage(4)">ONE LAST SURPRISE →</button>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="screen" id="page4">
+  <div class="eyebrow">Step 03 • Just for you</div>
+  <div class="icon">🌟</div>
+  <h2>A Gift of Memories</h2>
+  <p>Some moments deserve to be remembered forever.</p>
+  <div class="photo-grid">
+    <img src="photos/photo1.jpg" alt="Memory 1">
+    <img src="photos/photo2.jpg" alt="Memory 2">
+    <img src="photos/photo3.jpg" alt="Memory 3">
+  </div>
+  <div class="message">
+    May this new chapter bring you everything
+    that makes you smile. Keep shining,
+    keep dreaming and always be yourself. ♡
     <br><br>
-    <span class="gold">With warm wishes ♡</span>
+    <span style="color:#e8c76a">With love and best wishes ❤️</span>
+  </div>
+  <div class="buttons">
+    <button class="yes" onclick="celebrate()">CELEBRATE AGAIN 🎉</button>
+    <button class="secondary" onclick="nextPage(1)">START AGAIN ↺</button>
   </div>
 </section>
 
-<section id="memories">
-  <h2 class="section-title">Beautiful Memories</h2>
-  <p class="section-sub">Little moments, precious memories</p>
-  <div class="gallery" id="gallery">
-    <div class="photo">
-      <img src="photos/photo1.jpg" alt="Birthday memory 1"
-           onerror="this.style.display='none'">
-    </div>
-    <div class="photo">
-      <img src="photos/photo2.jpg" alt="Birthday memory 2"
-           onerror="this.style.display='none'">
-    </div>
-    <div class="photo">
-      <img src="photos/photo3.jpg" alt="Birthday memory 3"
-           onerror="this.style.display='none'">
-    </div>
-  </div>
-</section>
-
-<footer>
-  MADE WITH ♡ FOR <span class="gold" id="footerName">YOU</span>
-  <br><br>© Birthday Surprise
-</footer>
-
-<button class="music" id="musicBtn" onclick="toggleMusic()">
-  ♫ Play Music
-</button>
-
-<audio id="bgMusic" loop>
-  <source src="./music/birthday.mp3" type="audio/mpeg">
+<audio id="music" loop preload="none">
+  <source src="music/birthday.mp3" type="audio/mpeg">
 </audio>
+<button class="music" onclick="toggleMusic()" id="musicBtn">♫ Play Music</button>
 
 <script>
-// PERSONALIZE HERE
-const CONFIG = {
-  name: "Dear Niranjan",
-  // Replace this with your birthday message
-  message: "",
+// PERSONALIZE YOUR WEBSITE HERE
+const CONFIG={
+  name:"Dear Friend"
 };
 
-// Set name and message
-document.getElementById("heroName").textContent = CONFIG.name;
-document.getElementById("footerName").textContent = CONFIG.name;
-if (CONFIG.message.trim()) {
-  document.getElementById("wishMessage").innerHTML =
-    CONFIG.message.replace(/\n/g, "<br>");
+document.getElementById("birthdayName").textContent=CONFIG.name;
+
+let currentPage=1;
+function nextPage(n){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById("page"+n).classList.add("active");
+  currentPage=n;
+  document.getElementById("bar").style.width=(n*25)+"%";
+  if(n===3) celebrate();
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-// Confetti animation
-let particles = [];
-let canvas;
+function sayNo(){
+  document.getElementById("noText").textContent=
+    "No worries! The surprise will be here whenever you're ready. 😊";
+}
 
-function celebrate() {
-  if (!canvas) {
-    canvas = document.createElement("canvas");
-    canvas.style.cssText =
-      "position:fixed;inset:0;width:100%;height:100%;" +
-      "pointer-events:none;z-index:10";
-    document.body.appendChild(canvas);
-  }
+function openLetter(){
+  document.getElementById("letter").hidden=false;
+  document.getElementById("openLetter").textContent="LETTER OPENED ✓";
+}
 
-  const ctx = canvas.getContext("2d");
-  canvas.width = innerWidth * devicePixelRatio;
-  canvas.height = innerHeight * devicePixelRatio;
-  ctx.scale(devicePixelRatio, devicePixelRatio);
+// Confetti
+const canvas=document.getElementById("confetti");
+const ctx=canvas.getContext("2d");
+let pieces=[],animating=false;
 
-  const colors = ["#f7d779","#ffffff","#c69c45","#e6b7a0"];
-  for (let i = 0; i < 160; i++) {
-    particles.push({
-      x: innerWidth / 2,
-      y: innerHeight * .45,
-      vx: (Math.random() - .5) * 12,
-      vy: Math.random() * -11 - 2,
-      size: Math.random() * 6 + 3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      life: 100 + Math.random() * 60,
-      rotation: Math.random() * 6
+function resize(){
+  canvas.width=innerWidth*devicePixelRatio;
+  canvas.height=innerHeight*devicePixelRatio;
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+}
+resize();
+window.addEventListener("resize",resize);
+
+function celebrate(){
+  const colors=["#e8c76a","#fff0b0","#ffffff","#c49a3f"];
+  for(let i=0;i<130;i++){
+    pieces.push({
+      x:innerWidth/2,
+      y:innerHeight*.4,
+      vx:(Math.random()-.5)*12,
+      vy:-Math.random()*11-2,
+      size:Math.random()*6+3,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      life:120
     });
   }
-
-  if (!celebrate.running) {
-    celebrate.running = true;
-    animateConfetti();
+  if(!animating){
+    animating=true;
+    draw();
   }
 }
 
-function animateConfetti() {
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-  particles = particles.filter(p => p.life > 0);
-  for (const p of particles) {
-    p.x += p.vx;
-    p.y += p.vy;
-    p.vy += .16;
-    p.vx *= .99;
-    p.rotation += .1;
-    p.life--;
-
-    ctx.save();
-    ctx.translate(p.x, p.y);
-    ctx.rotate(p.rotation);
-    ctx.fillStyle = p.color;
-    ctx.globalAlpha = Math.min(1, p.life / 30);
-    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * .65);
-    ctx.restore();
+function draw(){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  pieces=pieces.filter(p=>p.life>0);
+  for(const p of pieces){
+    p.x+=p.vx;p.y+=p.vy;
+    p.vy+=.16;p.life--;
+    ctx.globalAlpha=Math.min(1,p.life/30);
+    ctx.fillStyle=p.color;
+    ctx.fillRect(p.x,p.y,p.size,p.size*.7);
   }
-
-  if (particles.length) {
-    requestAnimationFrame(animateConfetti);
-  } else {
-    celebrate.running = false;
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-  }
+  ctx.globalAlpha=1;
+  if(pieces.length) requestAnimationFrame(draw);
+  else animating=false;
 }
 
 // Background music
-const audio = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
+const audio=document.getElementById("music");
+const musicBtn=document.getElementById("musicBtn");
 
-async function toggleMusic() {
-  if (audio.paused) {
-    try {
+async function toggleMusic(){
+  if(audio.paused){
+    try{
       await audio.play();
-      musicBtn.textContent = "♫ Pause Music";
-    } catch (error) {
-      musicBtn.textContent = "Music unavailable";
+      musicBtn.textContent="♫ Pause Music";
+    }catch(e){
+      musicBtn.textContent="♫ Music unavailable";
+      console.error(e);
     }
-  } else {
+  }else{
     audio.pause();
-    musicBtn.textContent = "♫ Play Music";
+    musicBtn.textContent="♫ Play Music";
   }
 }
-
-audio.addEventListener("ended", () => {
-  musicBtn.textContent = "♫ Play Music";
-});
 </script>
-
 </body>
 </html>
