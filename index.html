@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="A special birthday surprise">
+<title>Happy Birthday ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --gold: #e6c56b;
+  --light-gold: #ffe9a3;
+  --bg: #090909;
+  --muted: #b9b4a5;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 50% 15%, #292011 0%, transparent 55%),
+    var(--bg);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.gold { color: var(--gold); }
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  animation: fadeUp 1s both;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(54px, 12vw, 105px);
+  font-weight: 500;
+  line-height: .95;
+  margin: 22px 0;
+  color: var(--light-gold);
+  text-shadow: 0 0 40px #d7ae4833;
+  animation: fadeUp 1.2s both;
+}
+
+.name {
+  display: block;
+  font-size: clamp(40px, 10vw, 85px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto 30px;
+  animation: fadeUp 1.5s both;
+}
+
+.btn {
+  border: 1px solid var(--gold);
+  color: #17120a;
+  background: linear-gradient(135deg, #ffe9a3, #c79b3b);
+  padding: 13px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  font: 500 13px 'Poppins', sans-serif;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #d8ad4d55;
+}
+
+.outline {
+  background: transparent;
+  color: var(--gold);
+}
+
+section {
+  padding: 70px 20px;
+  width: min(100%, 1000px);
+  margin: auto;
+}
+
+.section-title {
+  font: 500 clamp(32px, 7vw, 50px) 'Cormorant Garamond', serif;
+  color: var(--light-gold);
+  margin: 0 0 12px;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 32px;
+}
+
+.message {
+  max-width: 650px;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #b9994d55;
+  border-radius: 18px;
+  background: linear-gradient(145deg,#ffffff0b,#c7a34b08);
+  line-height: 2;
+  font-size: 14px;
+  color: #e2ddcf;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.photo {
+  overflow: hidden;
+  border: 1px solid #c5a34b55;
+  border-radius: 13px;
+  aspect-ratio: 1 / 1.15;
+  background: #17140e;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s;
+}
+
+.photo:hover img { transform: scale(1.08); }
+
+.music {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  z-index: 5;
+  border: 1px solid var(--gold);
+  background: #17130b;
+  color: var(--gold);
+  border-radius: 50px;
+  padding: 12px 17px;
+  font: 12px 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+footer {
+  padding: 30px 15px 45px;
+  color: #a69c83;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--gold);
+  pointer-events: none;
+  animation: twinkle 2.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.7); }
+  to { opacity: .95; transform: scale(1.3); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 550px) {
+  .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  section { padding: 55px 18px; }
+  .message { padding: 23px 17px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero" id="home">
+  <span class="sparkle" style="top:15%;left:13%">✦</span>
+  <span class="sparkle" style="top:28%;right:12%;animation-delay:1s">✧</span>
+  <span class="sparkle" style="bottom:20%;left:20%;animation-delay:.5s">✦</span>
+
+  <p class="eyebrow">A special day • A special person</p>
+  <h1>Happy Birthday<span class="name" id="heroName">Dear Friend</span></h1>
+  <p class="subtitle">
+    Today is all about you. May your life be filled
+    with happiness, love and beautiful memories.
+  </p>
+  <button class="btn" onclick="celebrate()">✦ Celebrate ✦</button>
+</header>
+
+<section id="wish">
+  <h2 class="section-title">A Little Wish <span class="gold">♡</span></h2>
+  <p class="section-sub">A few words from the heart</p>
+  <div class="message" id="wishMessage">
+    Wishing you a birthday as wonderful as you are.
+    May every dream you chase bring you closer to
+    happiness. May your days be filled with laughter,
+    your heart with peace, and your life with countless
+    beautiful moments. Keep shining always!
+    <br><br>
+    <span class="gold">With warm wishes ♡</span>
+  </div>
+</section>
+
+<section id="memories">
+  <h2 class="section-title">Beautiful Memories</h2>
+  <p class="section-sub">Little moments, precious memories</p>
+  <div class="gallery" id="gallery">
+    <div class="photo">
+      <img src="photos/photo1.jpg" alt="Birthday memory 1"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="photo">
+      <img src="photos/photo2.jpg" alt="Birthday memory 2"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="photo">
+      <img src="photos/photo3.jpg" alt="Birthday memory 3"
+           onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<footer>
+  MADE WITH ♡ FOR <span class="gold" id="footerName">YOU</span>
+  <br><br>© Birthday Surprise
+</footer>
+
+<button class="music" id="musicBtn" onclick="toggleMusic()">
+  ♫ Play Music
+</button>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// PERSONALIZE HERE
+const CONFIG = {
+  name: "Dear Friend",
+  // Replace this with your birthday message
+  message: "",
+};
+
+// Set name and message
+document.getElementById("heroName").textContent = CONFIG.name;
+document.getElementById("footerName").textContent = CONFIG.name;
+if (CONFIG.message.trim()) {
+  document.getElementById("wishMessage").innerHTML =
+    CONFIG.message.replace(/\n/g, "<br>");
+}
+
+// Confetti animation
+let particles = [];
+let canvas;
+
+function celebrate() {
+  if (!canvas) {
+    canvas = document.createElement("canvas");
+    canvas.style.cssText =
+      "position:fixed;inset:0;width:100%;height:100%;" +
+      "pointer-events:none;z-index:10";
+    document.body.appendChild(canvas);
+  }
+
+  const ctx = canvas.getContext("2d");
+  canvas.width = innerWidth * devicePixelRatio;
+  canvas.height = innerHeight * devicePixelRatio;
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+
+  const colors = ["#f7d779","#ffffff","#c69c45","#e6b7a0"];
+  for (let i = 0; i < 160; i++) {
+    particles.push({
+      x: innerWidth / 2,
+      y: innerHeight * .45,
+      vx: (Math.random() - .5) * 12,
+      vy: Math.random() * -11 - 2,
+      size: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      life: 100 + Math.random() * 60,
+      rotation: Math.random() * 6
+    });
+  }
+
+  if (!celebrate.running) {
+    celebrate.running = true;
+    animateConfetti();
+  }
+}
+
+function animateConfetti() {
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+  particles = particles.filter(p => p.life > 0);
+  for (const p of particles) {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += .16;
+    p.vx *= .99;
+    p.rotation += .1;
+    p.life--;
+
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = Math.min(1, p.life / 30);
+    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * .65);
+    ctx.restore();
+  }
+
+  if (particles.length) {
+    requestAnimationFrame(animateConfetti);
+  } else {
+    celebrate.running = false;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+  }
+}
+
+// Background music
+const audio = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+async function toggleMusic() {
+  if (audio.paused) {
+    try {
+      await audio.play();
+      musicBtn.textContent = "♫ Pause Music";
+    } catch (error) {
+      musicBtn.textContent = "Music unavailable";
+    }
+  } else {
+    audio.pause();
+    musicBtn.textContent = "♫ Play Music";
+  }
+}
+
+audio.addEventListener("ended", () => {
+  musicBtn.textContent = "♫ Play Music";
+});
+</script>
+
+</body>
+</html>
